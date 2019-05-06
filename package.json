@@ -11,12 +11,12 @@
   "version": "5.8.1",
   "homepage": "https://github.com/react-native-community/react-native-webview#readme",
   "scripts": {
-    "ci": "CI=true && npm run lint && npm run test",
-    "ci:publish": "npm semantic-release",
-    "lint": "tsc --noEmit && eslint ./src --ext .ts,.tsx",
-    "build": "tsc",
-    "prepack": "npm run build",
-    "test": "jest"
+    "ci": "CI=true && yarn lint && yarn test",
+    "ci:publish": "yarn semantic-release",
+    "lint": "yarn tsc --noEmit && yarn eslint ./src --ext .ts,.tsx",
+    "build": "yarn tsc",
+    "prepack": "yarn build",
+    "test": "yarn jest"
   },
   "peerDependencies": {
     "react": "^16.0",

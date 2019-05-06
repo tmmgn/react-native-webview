@@ -24,6 +24,8 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.LifecycleEventListener;
@@ -650,6 +652,15 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
 
     public void setUrlPrefixesForDefaultIntent(ReadableArray specialUrls) {
       mUrlPrefixesForDefaultIntent = specialUrls;
+    }
+    
+    @Override
+    public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+      if (error.getUrl().startsWith("https://demo-scrat.yamoney.ru:8443/merchant-test-card-stub/3ds") == true) {
+        handler.proceed();
+      } else {
+        super.onReceivedSslError(view, handler, error);
+      }
     }
   }
 

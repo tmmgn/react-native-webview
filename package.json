@@ -14,7 +14,7 @@
     "ci": "CI=true && npm run lint && npm run test",
     "ci:publish": "npm semantic-release",
     "lint": "tsc --noEmit && eslint ./src --ext .ts,.tsx",
-    "build": "npm tsc",
+    "build": "tsc",
     "prepack": "npm run build",
     "test": "jest"
   },
